@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+body {
+	margin: 1em;
+	width: 95%;
+	max-width: 700px;
+	font-family: sans-serif;
+}
+
+textarea {
+	width: 100%;
+	height: 300px;
+	font-size: 80%;
+	/* white-space: nowrap; */
+}
+
+ul {
+	margin-top: 0;
+}
+
+#memory {
+	font-size: 80%;
+}
+
+#memory > input {
+	width: 8em;
+}
+
+.stack {
+	background-color: red;
+}
+
+.heap {
+	background-color: blue;
+	color: white;
+}
+
+.bios {
+	background-color: yellow;
+}
+
+.dos {
+	background-color: limegreen;
+}
+
+.this-application {
+	background-color: orange;
+}
+
+.unallocated {
+	background-color: purple;
+	color: white;
+}
+
+#console {
+	background-color: black;
+	color: white;
+}
