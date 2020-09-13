@@ -14,20 +14,31 @@
 			We're going to start simple. This emulator just does COM files and the Opcodes needed to run "Hello World" (mov, int, add, loop, ret) . I'll add more once that is working.
 		</p>
 		<p>
-			8086 Assembly:<br />
+			<strong>8086 Assembly:</strong><br />
+			<select>
+				<option>Test</option>
+			</select>
 			<textarea id="assembly"></textarea><br />
 			<button id="assemble">Assemble</button>
+			<button>Load</button>
+			<button>Save As</button>
 		</p>
 		<p>
-			Listing:<br />
+			<strong>Listing:</strong><br />
 			<textarea id="listing"></textarea>
 		</p>
 		<p>
-			Binary:<br />
-			<textarea id="binary"></textarea>
+			<strong>Binary:</strong><br />
+			<select>
+				<option>Test</option>
+			</select>
+			<textarea id="binary"></textarea><br />
+			<button>Emulate</button>
+			<button>Load</button>
+			<button>Save As</button>
 		</p>
 		<p>
-			Memory:<br />
+			<strong>Memory:</strong><br />
 			<span class="stack">Stack</span>
 			<span class="heap">Heap</span>
 			<span class="bios">BIOS</span>
@@ -37,7 +48,7 @@
 			<textarea id="memory"></textarea>
 		</p>
 		<p>
-			Emulator Important Variables:<br />
+			<strong>Emulator Important Variables:</strong><br />
 			<textarea id="variables">
 entry point=CS:IP
 stack pointer=SS:SP
@@ -80,7 +91,7 @@ Keyboard Buffer =
 			</textarea>
 		</p>
 		<p>
-			Registers:<br />
+			<strong>Registers:</strong><br />
 			<textarea id="registers"></textarea>
 		</p>
 		<p>
@@ -88,18 +99,18 @@ Keyboard Buffer =
 			<button id="run">Run</button>
 		</p>
 		<p>
-			Console:<br />
+			<strong>Console:</strong><br />
 			<textarea id="console"></textarea>
 		</p>
+		
 		<p>
-			We support...
+			<strong>We support...</strong>
 			<ul>
 				<li>
 					Opcodes
 					<ul>
 						<li>mov</li>
 						<li>int</li>
-						<li>10h</li>
 						<li>add</li>
 						<li>loop</li>
 						<li>ret</li>
@@ -126,298 +137,34 @@ Keyboard Buffer =
 					</ul>
 				</li>
 				<li>
+					Memory Addresses
+					<ul>
+						<li>
+							<a href="http://muruganad.com/8086/8086-Assembly-Writing-Directly-to-Video-Memory-B800.html">
+								b8000 - Text Buffer
+							</a>
+							<!-- a0000 - Video Graphics Buffer -->
+						</li>
+					</ul>
+				</li>
+				<li>
 					I/O Ports
 				</li>
 			</ul>
 		</p>
-		<p class="above-ul">
-			Some light reading:
+		
+		<p>
+			<strong>Tips:</strong>
+		</p>
+		<p>
+			Writing an assembler or emulator without a teacher/professor/class can have a large learning curve. It took me a couple of weeks before I was able to get started. Hopefully with these tips, you can get started today.
 		</p>
 		<ul>
-			<li>
-				Opcodes / Assembly Language
-				<ul>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/X86_instruction_listings#x86_integer_instructions">
-							https://en.wikipedia.org/wiki/X86_instruction_listings#x86_integer_instructions
-						</a>
-					</li>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/X86_assembly_language">
-							https://en.wikipedia.org/wiki/X86_assembly_language
-						</a>
-					</li>
-					<li>
-						<a href="https://pdos.csail.mit.edu/6.828/2005/readings/i386/c17.htm">
-							https://pdos.csail.mit.edu/6.828/2005/readings/i386/c17.htm
-						</a>
-					</li>
-					<li>
-						<a href="http://www.mathemainzel.info/files/x86asmref.html">
-							http://www.mathemainzel.info/files/x86asmref.html
-						</a>
-					</li>
-					<li>
-						<a href="https://godbolt.org/">
-							<mark>https://godbolt.org/ - translates C to assembly</mark>
-						</a>
-					</li>
-					<li>
-						<a href="file:///C:/emu8086/documentation/8086_instruction_set.html">
-							<mark>file:///C:/emu8086/documentation/8086_instruction_set.html - 8086 opcodes with algorithms</mark>
-						</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				Instruction Set Architecture (ISA) / PCode / SLEIGH
-				<ul>
-					<li>
-						<a href="https://medium.com/@cetfor/emulating-ghidras-pcode-why-how-dd736d22dfb">
-							https://medium.com/@cetfor/emulating-ghidras-pcode-why-how-dd736d22dfb
-						</a>
-					</li>
-					<li>
-						<a href="https://github.com/NationalSecurityAgency/ghidra/tree/master/Ghidra/Processors/x86/data/languages">
-							https://github.com/NationalSecurityAgency/ghidra/tree/master/Ghidra/Processors/x86/data/languages
-						</a>
-					</li>
-					<li>
-						<a href="https://github.com/NationalSecurityAgency/ghidra/pull/1430/files">
-							https://github.com/NationalSecurityAgency/ghidra/pull/1430/files
-						</a>
-					</li>
-					<li>
-						<a href="https://github.com/NationalSecurityAgency/ghidra/commit/23d1e9ad22b875d68c70b6d22cb74767cf03be3e">
-							https://github.com/NationalSecurityAgency/ghidra/commit/23d1e9ad22b875d68c70b6d22cb74767cf03be3e
-						</a>
-					</li>
-					<li>
-						<a href="https://www.reddit.com/r/ghidra/comments/f5lk42/my_experience_writing_processor_modules/">
-							https://www.reddit.com/r/ghidra/comments/f5lk42/my_experience_writing_processor_modules/
-						</a>
-					</li>
-					<li>
-						<a href="https://spinsel.dev/2020/06/17/ghidra-brainfuck-processor-1.html">
-							https://spinsel.dev/2020/06/17/ghidra-brainfuck-processor-1.html
-						</a>
-					</li>
-					<li>
-						<a href="https://ghidra.re/courses/languages/html/sleigh.html">
-							https://ghidra.re/courses/languages/html/sleigh.html
-						</a>
-					</li>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/Instruction_set_architecture">
-							https://en.wikipedia.org/wiki/Instruction_set_architecture
-						</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				Assemblers / Disassemblers
-				<ul>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/Assembly_language#Assembler">
-							https://en.wikipedia.org/wiki/Assembly_language#Assembler
-						</a>
-					</li>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/Disassembler">
-							https://en.wikipedia.org/wiki/Disassembler
-						</a>
-					</li>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/Decompiler">
-							https://en.wikipedia.org/wiki/Decompiler
-						</a>
-					</li>
-					<li>
-						<a href="https://www.geeksforgeeks.org/introduction-of-assembler/">
-							https://www.geeksforgeeks.org/introduction-of-assembler/ - 2 pass assemblers
-						</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				Software Interrupts / DOS API / BIOS API
-				<ul>
-					<li>
-						<a href="http://www.ctyme.com/intr/int.htm">
-							<mark>
-								http://www.ctyme.com/intr/int.htm
-							</mark>
-						</a>
-					</li>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/DOS_API">
-							https://en.wikipedia.org/wiki/DOS_API
-						</a>
-					</li>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/BIOS_interrupt_call">
-							https://en.wikipedia.org/wiki/BIOS_interrupt_call
-						</a>
-					</li>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/Interrupt">
-							https://en.wikipedia.org/wiki/Interrupt
-						</a>
-					</li>
-					<li>
-						<a href="http://www.ctyme.com/intr/int-21.htm">
-							http://www.ctyme.com/intr/int-21.htm
-						</a>
-					</li>
-					<li>
-						<a href="https://jdebp.eu/FGA/dos-api-bindings.html">
-							https://jdebp.eu/FGA/dos-api-bindings.html - DOS API libraries in C
-						</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				Registers
-				<ul>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/Processor_register">
-							https://en.wikipedia.org/wiki/Processor_register
-						</a>
-					</li>
-					<li>
-						<a href="https://www.byclb.com/TR/Tutorials/microprocessors/ch2_1.htm">
-							https://www.byclb.com/TR/Tutorials/microprocessors/ch2_1.htm
-						</a>
-					</li>
-					<li>
-						<a href="http://www1.frm.utn.edu.ar/arquitectura/t86.pdf">
-							http://www1.frm.utn.edu.ar/arquitectura/t86.pdf - great description of registers
-						</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				Executables / Headers
-				<ul>
-					<li>
-						<a href="http://www.delorie.com/djgpp/doc/exe/">
-							http://www.delorie.com/djgpp/doc/exe/
-						</a>
-					</li>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/DOS_MZ_executable">
-							https://en.wikipedia.org/wiki/DOS_MZ_executable
-						</a>
-					</li>
-					<li>
-						<a href="https://wiki.osdev.org/MZ">
-							https://wiki.osdev.org/MZ
-						</a>
-					</li>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/Relocation_(computing)#Relocation_table">
-							https://en.wikipedia.org/wiki/Relocation_(computing)#Relocation_table
-						</a>
-					</li>
-					<li>
-						<a href="http://www.techhelpmanual.com/354-exe_file_header_layout.html">
-							http://www.techhelpmanual.com/354-exe_file_header_layout.html
-						</a>
-					</li>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/COM_file">
-							https://en.wikipedia.org/wiki/COM_file
-						</a>
-					</li>
-					<li>
-						<a href="https://stackoverflow.com/questions/25187822/x86-segmentation-dos-mz-file-format-and-disassembling">
-							https://stackoverflow.com/questions/25187822/x86-segmentation-dos-mz-file-format-and-disassembling
-						</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				Memory / Mode / Segments
-				<ul>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/X86_memory_segmentation">
-							https://en.wikipedia.org/wiki/X86_memory_segmentation
-						</a>
-					</li>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/Code_segment">
-							https://en.wikipedia.org/wiki/Code_segment
-						</a>
-					</li>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/Data_segment">
-							https://en.wikipedia.org/wiki/Data_segment
-						</a>
-					</li>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/.bss">
-							https://en.wikipedia.org/wiki/.bss
-						</a>
-					</li>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/Memory_segmentation">
-							https://en.wikipedia.org/wiki/Memory_segmentation
-						</a>
-					</li>
-					<li>
-						<a href="https://en.wikipedia.org/wiki/Zero_page">
-							https://en.wikipedia.org/wiki/Zero_page
-						</a>
-					</li>
-					<li>
-						<a href="http://www.c-jump.com/CIS77/ASM/Memory/lecture.html">
-							http://www.c-jump.com/CIS77/ASM/Memory/lecture.html
-						</a>
-					</li>
-					<li>
-						<a href="https://stackoverflow.com/a/29430821/3480193">
-							https://stackoverflow.com/a/29430821/3480193 - Short/Long/Far Jump
-						</a>
-					</li>
-					<li>
-						<a href="https://www.drdobbs.com/architecture-and-design/mapping-dos-memory-allocation/184408026">
-							https://www.drdobbs.com/architecture-and-design/mapping-dos-memory-allocation/184408026 - DOS Memory Map
-						</a>
-					</li>
-					<li>
-						<a href="file:///C:/emu8086/documentation/memory.html">
-							file:///C:/emu8086/documentation/memory.html
-						</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				Emulators / DOSBox
-				<ul>
-					<li>
-						<a href="https://github.com/dosbox-staging/dosbox-staging">
-							https://github.com/dosbox-staging/dosbox-staging
-						</a>
-					</li>
-					<li>
-						<a href="https://www.vogons.org/">
-							https://www.vogons.org/
-						</a>
-					</li>
-					<li>
-						<a href="https://emu8086-microprocessor-emulator.en.softonic.com/download">
-							<mark>
-								https://emu8086-microprocessor-emulator.en.softonic.com/download - 8086 assembler & emulator & debugger
-							</mark>
-						</a>
-					</li>
-					<li>
-						<a href="file:///C:/emu8086/documentation/index.html">
-							file:///C:/emu8086/documentation/index.html
-						</a>
-					</li>
-				</ul>
-			</li>
+			<li><strong>.com Files</strong> - Start with simpler <a href="https://en.wikipedia.org/wiki/COM_file">.com files</a> rather than complex <a href="https://en.wikipedia.org/wiki/DOS_MZ_executable">DOS MZ executable files</a>. MZ executables are complicated enough that you may get completely stuck on just <a href="http://www.techhelpmanual.com/354-exe_file_header_layout.html">parsing the header</a>. MZ executables also support <a href="https://en.wikipedia.org/wiki/X86_memory_segmentation">memory segmentation</a>, <a href="https://en.wikipedia.org/wiki/Relocation_(computing)">relocation tables</a>, and <a href="https://en.wikipedia.org/wiki/Overlay_(programming)">overlays</a>. All advanced features that are hard to implement.</li>
+			<li><strong>emu8086</strong> - Download and run <a href="https://emu8086-microprocessor-emulator.en.softonic.com/">emu8086</a>. It is a working, feature-rich emulator and debugger. Great for assembling and running the same programs that you are, stepping through, and checking to make sure your program is working correctly.</li>
+			<li><strong>Test Driven Development</strong> - Use the simple assembly programs that come with emu8086. Also google for other simple 8086 assembly programs. Then do test driven development. Implement enough opcodes and syntax to get that particular program working. Get that working perfectly. Then move on to another simple program. Rinse and repeat.</li>
+			<!-- give default memory locations and register values -->
+			<!-- turn this section into a blog post & Reddit post -->
 		</ul>
 	</body>
 </html>

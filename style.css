@@ -12,6 +12,11 @@ textarea {
 	height: 300px;
 	font-size: 80%;
 	/* white-space: nowrap; */
+	margin: 0.5em auto;
+}
+
+select {
+	margin: 0.5em auto;
 }
 
 ul {
@@ -55,4 +60,8 @@ ul {
 #console {
 	background-color: black;
 	color: white;
+}
+
+strong {
+	text-decoration: underline;
 }

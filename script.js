@@ -18,7 +18,9 @@ class Assembler8086 {
 		'loop': 'E2',
 		'ret': 'C3',
 	}
-	// Syntax to look up: [], '', ""
+	// Syntaxes: [], '', "", 11, 11h, 11b
+	// name, org
+	// label:
 	
 	setAssembly(s) {
 		this.assembly = s;
