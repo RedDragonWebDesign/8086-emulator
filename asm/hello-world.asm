@@ -1,3 +1,5 @@
+; emu8086 example
+; 0 errors
 name "hi-world"
 
 ; this example prints out  "hello world!"

@@ -1,0 +1,14 @@
+Functions to write
+- factorial
+- hex to decimal
+- GCD
+- LCM
+- reverse a string
+- print a string
+- average
+- square root
+- look on LeetCode for advanced ideas
+
+macro vs procedure
+
+there's a bunch more examples in C:\emu8086\examples

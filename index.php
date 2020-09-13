@@ -18,21 +18,25 @@
 			<select>
 				<option>Test</option>
 			</select>
-			<textarea id="assembly"></textarea><br />
+			<textarea id="assembly" class="important"></textarea><br />
 			<button id="assemble">Assemble</button>
 			<button>Load</button>
 			<button>Save As</button>
 		</p>
 		<p>
 			<strong>Listing:</strong><br />
-			<textarea id="listing"></textarea>
+			<textarea id="listing" class="small"></textarea>
+		</p>
+		<p>
+			<strong>Assembler Warnings:</strong><br />
+			<textarea id="warnings" class="small"></textarea>
 		</p>
 		<p>
 			<strong>Binary:</strong><br />
 			<select>
 				<option>Test</option>
 			</select>
-			<textarea id="binary"></textarea><br />
+			<textarea id="binary" class="important"></textarea><br />
 			<button>Emulate</button>
 			<button>Load</button>
 			<button>Save As</button>
@@ -45,11 +49,11 @@
 			<span class="dos">DOS</span>
 			<span class="this-application">This Application</span>
 			<span class="unallocated">Unallocated</span><br />
-			<textarea id="memory"></textarea>
+			<textarea id="memory" class="small"></textarea>
 		</p>
 		<p>
 			<strong>Emulator Important Variables:</strong><br />
-			<textarea id="variables">
+			<textarea id="variables" class="small">
 entry point=CS:IP
 stack pointer=SS:SP
 variable pointer = DS:EA (effective address)
@@ -92,7 +96,7 @@ Keyboard Buffer =
 		</p>
 		<p>
 			<strong>Registers:</strong><br />
-			<textarea id="registers"></textarea>
+			<textarea id="registers" class="small"></textarea>
 		</p>
 		<p>
 			<button id="step">Step</button>
@@ -100,7 +104,7 @@ Keyboard Buffer =
 		</p>
 		<p>
 			<strong>Console:</strong><br />
-			<textarea id="console"></textarea>
+			<textarea id="console" class="important"></textarea>
 		</p>
 		
 		<p>
@@ -117,7 +121,7 @@ Keyboard Buffer =
 					</ul>						
 				</li>
 				<li>
-					Interrupts
+					Interrupts (int)
 					<ul>
 						<li>
 							<a href="http://www.ctyme.com/intr/rb-0069.htm">
@@ -148,7 +152,7 @@ Keyboard Buffer =
 					</ul>
 				</li>
 				<li>
-					I/O Ports
+					I/O Ports (out)
 				</li>
 			</ul>
 		</p>

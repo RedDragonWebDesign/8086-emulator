@@ -36,11 +36,13 @@ class Assembler8086 {
 	
 	getCompactAssembly() {
 		this.compactAssembly = this.assembly;
+		this.compactAssembly = this.compactAssembly.toLowerCase();
 		this.compactAssembly = this._deleteAssemblyComments(this.compactAssembly);
 		this.compactAssembly = this._putLabelsOnOwnLine(this.compactAssembly);
 		this.compactAssembly = this._condenseWhitespace(this.compactAssembly);
 		this.compactAssembly = this._trimEveryLine(this.compactAssembly);
 		this.compactAssembly = this._deleteEmptyLines(this.compactAssembly);
+		this.compactAssembly = this.compactAssembly.trim();
 		return this.compactAssembly;
 	}
 	
